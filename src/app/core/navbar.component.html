@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#zyf-navbar-collapse">
+          <span class="sr-only">切换导航</span>
+          <span *ngFor="let i of navItems" class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">{{title}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="zyf-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <ng-template ngFor let-navItem [ngForOf]="navItems" [ngForTrackBy]="trackByFn">
+          <!-- for navItem -->
+          <li *ngIf="navItem.isGroup() === false" class = "active">
+            <a [routerLink]="navItem.routerLink" [routerLinkActive]="navItem.routerLinkActive">{{navItem.title}}</a>
+          </li>
+          <!-- for navItemGroup, use dropdown menu -->
+          <li *ngIf="navItem.isGroup() === true" class = "dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+              {{navItem.title}}<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li *ngFor="let subNavItem of navItem.asGroup().subRouterLinks">
+                <a [routerLink]="subNavItem.routerLink" [routerLinkActive]="subNavItem.routerLinkActive">{{subNavItem.title}}</a>
+              </li>
+            </ul>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+</nav>

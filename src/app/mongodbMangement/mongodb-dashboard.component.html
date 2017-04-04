@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <button class="btn btn-primary" type="button" (click)="refresh()">Refresh</button>
+            <label>Auto Refresh:</label>
+            <div class="btn-group" data-toggle="buttons" id="auto-refresh-checkbox">
+                <label class="btn btn-default btn-on active" (click)="autoRefreshChecked(true)">
+                    <input type="radio" value="1" checked="checked">ON</label>
+                <label class="btn btn-default btn-off" (click)="autoRefreshChecked(false)">
+                    <input type="radio" value="0">OFF</label>
+            </div>
+            <!--<input type="checkbox" name="auto-refresh-checkbox" checked>-->
+        </div>
+    </div>
+</div>
+
+<div class="container" id="MongodbStatFrameContainer">
+    <iframe id="MongodbStatFrame" width=100% height=800px frameborder=1 src="http://127.0.0.1:28017/"></iframe>
+</div>

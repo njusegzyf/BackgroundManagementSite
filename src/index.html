@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Angular Quickstart</title>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      color: #369;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+  <link rel="stylesheet" href="node_modules/ag-grid/dist/styles/ag-grid.css">
+  <link rel="stylesheet" href="node_modules/ag-grid/dist/styles/theme-fresh.css">
+
+  <!-- Polyfills -->
+  <script src="node_modules/core-js/client/shim.min.js"></script>
+
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="systemjs.config.js"></script>
+
+  <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+  <!-- 包括所有已编译的bootstrap插件 -->
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+
+  <script>
+    System.import('main.js').catch(function (err) { console.error(err); });
+  </script>
+</head>
+
+<body>
+  <background-management-app>Loading AppComponent content here ...</background-management-app>
+</body>
+
+</html>
