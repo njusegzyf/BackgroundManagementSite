@@ -5,9 +5,18 @@ import { IWorkService } from '../dataServiceApi/work.service';
 
 export class WorkMockService implements IWorkService<ObjectID, IWork<ObjectID>, IWork<ObjectID>[]> {
 
-  mockWorks: WorkBase<ObjectID>[] =
-  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    .map((n: number) => { return new WorkBase(null, `work name ${n}`, `source path ${n}`, `description ${n}`, null); });
+  mockWorks: WorkBase<ObjectID>[] = [];
+
+  constructor() {
+    let arr = [];
+    for (let i = 0; i < 200; i++) {
+      arr.push(i);
+    }
+    this.mockWorks = arr.map((n: number) => {
+      return new WorkBase(null, `work name ${n}`, `source path ${n}`, `description ${n}`, null);
+    });
+  }
+
 
   getAllAsync(): Promise<IWork<ObjectID>[]> {
     return Promise.resolve(this.mockWorks);

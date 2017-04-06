@@ -5,6 +5,9 @@ import { WorkTableComponent } from './work-table.component';
 import { MongodbDashboardComponent } from './mongodb-dashboard.component';
 import { MessageTableComponent } from './message-table.component';
 
+// Test components
+import { WorkTable2Component } from './work-table2.component';
+
 @NgModule({
   imports: [RouterModule.forChild([
     // { path: 'mongodb', redirectTo: 'mongodb/dashboard', pathMatch: 'full' }
@@ -13,8 +16,9 @@ import { MessageTableComponent } from './message-table.component';
     {
       path: 'mongodb',
       children: [
-        { path: 'dashboard', component: MongodbDashboardComponent, },
-        { path: 'works', component: WorkTableComponent }
+        { path: 'dashboard', component: MongodbDashboardComponent },
+        { path: 'works', component: WorkTableComponent },
+        { path: 'works2', component: WorkTable2Component }
       ]
     },
     {

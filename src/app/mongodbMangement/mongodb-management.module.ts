@@ -14,12 +14,17 @@ import { WorkDetailComponent } from './work-detail.component';
 import { MessageTableComponent } from './message-table.component';
 import { MessageReplyComponent } from './message-reply.component';
 
+// Test components
+import { WorkTable2Component } from './work-table2.component';
+
 let agGridComponents: any[] = [
   WorkTableComponent,
   WorkTableCellComponent,
   WorkDetailComponent,
   MessageTableComponent,
-  MessageReplyComponent
+  MessageReplyComponent,
+
+  WorkTable2Component
 ];
 
 @NgModule({

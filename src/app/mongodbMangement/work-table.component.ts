@@ -1,6 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { GridOptions } from 'ag-grid';
-import { ObjectID } from 'mongodb';
 
 import { WorkDetailComponent } from './work-detail.component';
 import { WorkTableCellComponent } from './work-table-cell.component';
@@ -16,6 +15,16 @@ class ChildWork {
     }
 }
 
+/**
+ * A work table component using in memory row model and pagination.
+ * 
+ * @see https://www.ag-grid.com/javascript-grid-in-memory/
+ * @see https://www.ag-grid.com/javascript-grid-pagination/?framework=all
+ * @see https://www.ag-grid.com/javascript-grid-master-detail/?framework=all
+ * 
+ * @class WorkTableComponent
+ * @implements {AfterViewInit}
+ */
 @Component({
     selector: 'work-table',
     templateUrl: './work-table.component.html'
@@ -25,11 +34,11 @@ export class WorkTableComponent implements AfterViewInit {
     private dataService: WorkMockService = new WorkMockService();
 
     constructor() {
-        this.gridOptions = <GridOptions>{};
+        this.gridOptions = <GridOptions>{
+            pagination: true,
+            paginationPageSize: 25
+        };
 
-        this.gridOptions.rowData = this.dataService.getAllSync();
-        // this.dataService.getAllAsync()
-        // .then(data => { this.gridOptions.rowData = data; });
         this.gridOptions.columnDefs = [
             {
                 headerName: '#',
@@ -75,6 +84,10 @@ export class WorkTableComponent implements AfterViewInit {
                 width: 100
             }
         ];
+
+        this.gridOptions.rowData = this.dataService.getAllSync();
+        // this.dataService.getAllAsync()
+        // .then(data => { this.gridOptions.rowData = data; });
 
         // this.gridOptions.columnDefs = [
         //     {
